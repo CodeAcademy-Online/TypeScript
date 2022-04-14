@@ -1,7 +1,7 @@
 # TypeScript - Bendriniai tipai
 
 Bendriniai tipai - tai duomenų tipo nustatymas vykdymo metu.
-[pav-1.jpg](./pav-1.jpg "Bendriniai tipai")
+[pav-1.jpg](./pav-1.jpg)
 
 Bendrinai tipai naudojami, kuomet funkcijos/klasės gali atlikti veiksmus su tam tikra tipų aibe.
 Tokiu atveju, galima aprašyti funkcijas/klases visai tai tipų aibei.
