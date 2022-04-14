@@ -1,20 +1,25 @@
 # TypeScript - Bendriniai tipai
 
 Bendriniai tipai - tai duomenų tipo nustatymas vykdymo metu.
+
 ![pav-1.jpg](./pav-1.jpg)
 
 Bendrinai tipai naudojami, kuomet funkcijos/klasės gali atlikti veiksmus su tam tikra tipų aibe.
 Tokiu atveju, galima aprašyti funkcijas/klases visai tai tipų aibei.
-![pav-2.jpg](./pav-2.jpg "banys")
+
+![pav-2.jpg](./pav-2.jpg)
 
 Bendriniai tipai gali būt naudojami kurti tipams, kurie priklauso nuo kitų tipų.
 Šiame pavyzdyje tipas turi būti nurodomas aprašant naujajį tipą, nes TypeScript compiler'is neturi parametro pagal kurį jį galėtų "atspėti"
-![pav-3.jpg](./pav-3.jpg?raw=true "banys")
-[pav-4.jpg]
+
+![pav-3.jpg](./pav-3.jpg")
+
+![pav-4.jpg](./pav-4.jpg")
 
 Bendriniai tipai gali būt naudojami ir aprašant klases. Aprašius klasei bendrinį tipą, jis galioja visoje klasėje.
 Kuriant klasės objektą, reikia nurodyti bendrinį tipą.
-[pav-5.jpg]
+
+![pav-5.jpg](./pav-5.jpg")
 
 Atlikite užduotis aplanke './uzduotys'
 
