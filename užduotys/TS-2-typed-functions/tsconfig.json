@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "es2016", // į kokią JavaScript versiją paversti kodą                 
+    "rootDir": "./src", // aplankas, kuriame ieškoti TypeScript failų                           
+    "outDir": "./public/js", // aplankas į kurį sudėti transpiliuotus JavaScript failus                                    
+    "sourceMap": true, // ar susieti transpiliuoto JavaScript failų eilutes su orginalių failų eilutėmis                           
+    "forceConsistentCasingInFileNames": true, // ar versti vadinti failus pagal vienodą failų įvardinimo sintaksę
+    "strict": true, // ar kodas privalo būti griežtos sintaksės                            
+    "noImplicitAny": true, // ar drausti palikti kintamuosius be tipų                       
+    "strictNullChecks": true, // griežtas null tipo kintamųjų tikrinimas                    
+    "strictFunctionTypes": true, // griežtas funkcijų aprašymas                 
+    "strictBindCallApply": true, // this reikšmės aprašymas, atliekant Function.bind, Function.call ir Function.apply metodus                 
+    "noImplicitThis": true, // this nuorodos aprašymo reikalavimas                      
+    "alwaysStrict": true, // ar JavaScript failams pridėti 'use strict'                        
+    "noUnusedLocals": true, // ar drausti nepanaudotus kintamuosius
+    "noUnusedParameters": true, // ar drausti nepanaudotus funkcijos parametrus                
+    "exactOptionalPropertyTypes": true, // reikalauti tiksliai aprašytų objekto savybių            
+    "noImplicitReturns": true, // reikalavimas apibūtinti funkcijų grąžinimo tipus                   
+    "noFallthroughCasesInSwitch": true, // switch direktyvos sugriežtinimas
+    "noImplicitOverride": true, // reikalavimas įvardinti  aktažodžiu 'override' jeigu perrašome funkcijas
+    "removeComments": true, // ar pašalinti komentarus sukompiliuotuose failuose                    
+    "skipLibCheck": true // ar praleisti tipų tikrinimą naudojant bibliotekas
+  },
+}
