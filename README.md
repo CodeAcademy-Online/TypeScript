@@ -15,7 +15,7 @@ Bendriniai tipai gali būt naudojami kurti tipams, kurie priklauso nuo kitų tip
 
 Tipai ir funkcijos            | Panaudojimas
 :-------------------------:|:-------------------------:
-![](./pav-3.jpg)  |  ![](./pav-4.jpg)
+![](./pav-3.jpg)  |   <img src="./pav-4.jpg" width="200" />
 
 Bendriniai tipai gali būt naudojami ir aprašant klases. Aprašius klasei bendrinį tipą, jis galioja visoje klasėje.
 Kuriant klasės objektą, reikia nurodyti bendrinį tipą.
