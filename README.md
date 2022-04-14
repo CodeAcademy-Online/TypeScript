@@ -1,3 +1,5 @@
+# TypeScript - Tipų aprašymas
+
 1. Failus skaitykite ir atlikite tokia tvarka:
   * TS-2-typed-functions
   * TS-2-typed-objects
@@ -14,4 +16,3 @@
   * Kiekvieno aplanko tsconfig.json faile pašalinkite taisyklių rinkinius ir įtraukite bendrą './tsconfig.base.json' failą:
     Kaip tai padaryti rasite čia:
     https://www.typescriptlang.org/tsconfig#extends
-
