@@ -12,14 +12,14 @@ Tokiu atveju, galima aprašyti funkcijas/klases visai tai tipų aibei.
 Bendriniai tipai gali būt naudojami kurti tipams, kurie priklauso nuo kitų tipų.
 Šiame pavyzdyje tipas turi būti nurodomas aprašant naujajį tipą, nes TypeScript compiler'is neturi parametro pagal kurį jį galėtų "atspėti"
 
-![pav-3.jpg](./pav-3.jpg")
+![pav-3.jpg](./pav-3.jpg)
 
-![pav-4.jpg](./pav-4.jpg")
+![pav-4.jpg](./pav-4.jpg)
 
 Bendriniai tipai gali būt naudojami ir aprašant klases. Aprašius klasei bendrinį tipą, jis galioja visoje klasėje.
 Kuriant klasės objektą, reikia nurodyti bendrinį tipą.
 
-![pav-5.jpg](./pav-5.jpg")
+![pav-5.jpg](./pav-5.jpg)
 
 Atlikite užduotis aplanke './uzduotys'
 
