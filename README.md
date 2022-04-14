@@ -25,10 +25,12 @@ Bendriniai tipai gali būt naudojami kurti tipams, kurie priklauso nuo kitų tip
 
 Bendriniai tipai gali būt naudojami ir aprašant klases. Aprašius klasei bendrinį tipą, jis galioja visoje klasėje.
 Kuriant klasės objektą, reikia nurodyti bendrinį tipą.
+
 <img src="/pav-5.jpg" />
 
 <hr />
 
+## Užduotys
 Atlikite užduotis aplanke './uzduotys'
 
 Pasitikrinkite užduotis aplanke './atsakymai'
