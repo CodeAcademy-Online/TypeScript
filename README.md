@@ -9,86 +9,79 @@ Turime 3 darbuotojų tipus:
   * work-person - žmogus kuri gauna atlygį vieną kart per mėnesį už kiekvieną darbo dieną
   * business-license-person - žmogus kuris gauna atlygį už atliktus darbus
 
-Klasių hierarchijos schema:
-+---------------------------------------------------------------------+
-|                                                                     |
-| SelfEmployedPerson    ↘                                             |
-|                         ↘                                           |
-| WorkPerson → → → → → → → → abstract Employee → → → abstract Person  |
-|                         ↗                                           |
-| BusinessLicensePerson ↗                                             |
-|                                                                     |
-+---------------------------------------------------------------------+
+## Klasių hierarchijos schema:
 
-Klasių schemos:
-  --- abstract Person ---
-    savybės:
-      protected id: string;
-      protected name: string;
-      protected surname: string;
+SelfEmployedPerson    ↘ 
+                        ↘ 
+WorkPerson → → → → → → → → abstract Employee → → → abstract Person 
+                        ↗                                          
+BusinessLicensePerson ↗                                            
 
-    metodai:
-      public getPersonInfo = (): string
-      public abstract toString(): string;
-  ---
+## Klasių schemos
+### abstract Person 
+##### savybės:
+* protected id: string;
+* protected name: string;
+* protected surname: string;
 
-  --- abstract Employee extends Person ---
-    metodai:
-      public abstract calcPay(): number;
-  ---
+##### metodai:
+* public getPersonInfo = (): string
+* public abstract toString(): string;
 
-  --- Job ---
-    savybės:
-      private id: string;
-      private finished: boolean = false;
-      private payed: boolean = false;
-      private dateFinished?: Date;
+### abstract Employee extends Person
+##### metodai:
+  public abstract calcPay(): number;
 
-    metodai:
-      public completeJob = (): void
-      public setJobPayed = (): void
-      public getPay = (): number
-      public isFinished = (): boolean
-      public isPayed = (): boolean
-      public toString = (): string
-  ---
 
-  --- BuisnessLicencePerson extends Employee ---
-    savybės:
+### Job
+##### savybės:
+* private id: string;
+* private finished: boolean = false;
+* private payed: boolean = false;
+* private dateFinished?: Date;
+
+##### metodai:
+* public completeJob = (): void
+* public setJobPayed = (): void
+* public getPay = (): number
+* public isFinished = (): boolean
+* public isPayed = (): boolean
+* public toString = (): string
+
+### BuisnessLicencePerson extends Employee
+##### savybės:
       private jobs: Job[];
 
     metodai:
       public calcPay = (): number
       public override toString(): string
-  ---
 
-  --- SelfEmployedPerson extends Employee ---
-    savybės:
-      private hourPay: number;
-      private hoursWorked: number;
+### SelfEmployedPerson extends Employee 
+##### savybės:
+* private hourPay: number;
+* private hoursWorked: number;
 
-    metodai:
-      public calcPay = (): number
-      public override toString(): string
-  ---
+##### metodai:
+* public calcPay = (): number
+* public override toString(): string
 
-  --- WorkPerson extends Employee ---
-    savybės:
-      private hourPay: number;
-      private fullTimeEquivalent: number;
+### WorkPerson extends Employee 
+##### savybės:
+* private hourPay: number;
+* private fullTimeEquivalent: number;
 
-    metodai:
-      public calcPay = (): number
-      public override toString(): string
-  ---
-
+##### metodai:
+* public calcPay = (): number
+* public override toString(): string
+* 
+## Užduotis
 Jūsų praktikos darbo esmė, sukurti abstrakčias klases, kurios įpareigotų vaikes klases
-  implementuoti abstrakčius metodus. Kiekviena konkreti klasė (SelfEmployedPerson, WorkPerson ir
-  BuisnessLicencePerson) turi savaip apskaičiuoti užmokestį:
-    WorkPerson - pagal darbo dienas mėnesyje
-    SelfEmployedPerson - pagal išdirbtas valandas
-    BuisnessLicencePerson - pagal atliktus darbus (Job)
+implementuoti abstrakčius metodus. Kiekviena konkreti klasė (SelfEmployedPerson, WorkPerson ir
+BuisnessLicencePerson) turi savaip apskaičiuoti užmokestį:
+* WorkPerson - pagal darbo dienas mėnesyje
+* SelfEmployedPerson - pagal išdirbtas valandas
+* BuisnessLicencePerson - pagal atliktus darbus (Job)
 
-  Pavaizduokite teisingą klasių sudarymo ir algoritmų aprašymo veikimą:
-    1. Atspausdinkite visus darbuotojus naudodami implementuota metodą toString()
-    2. Atspausdinkite visų darbuotojų atlyginimus anudodami implementuotą metodą calcPay()
+Pavaizduokite teisingą klasių sudarymo ir algoritmų aprašymo veikimą:
+1. Atspausdinkite visus darbuotojus naudodami implementuota metodą toString()
+2. Atspausdinkite visų darbuotojų atlyginimus anudodami implementuotą metodą calcPay()
