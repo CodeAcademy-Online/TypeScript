@@ -1,4 +1,4 @@
-# TypeScript -- OOP abstrakcija ir polimorfizmas
+# TypeScript - OOP abstrakcija ir polimorfizmas
 
 Šios praktikos tikslas įsisavinti abstrakcijos ir polimorfizmo žinias, naudojat abstrakčias
 klases.
@@ -10,12 +10,7 @@ Turime 3 darbuotojų tipus:
   * business-license-person - žmogus kuris gauna atlygį už atliktus darbus
 
 ## Klasių hierarchijos schema:
-
-SelfEmployedPerson    ↘ 
-                        ↘ 
-WorkPerson → → → → → → → → abstract Employee → → → abstract Person 
-                        ↗                                          
-BusinessLicensePerson ↗                                            
+[](./schema.jpg);                                        
 
 ## Klasių schemos
 ### abstract Person 
