@@ -18,10 +18,10 @@ Turime 3 darbuotojų tipus:
 * protected id: string;
 * protected name: string;
 * protected surname: string;
-
 ##### metodai:
 * public getPersonInfo = (): string
 * public abstract toString(): string;
+
 
 ### abstract Employee extends Person
 ##### metodai:
@@ -34,7 +34,6 @@ Turime 3 darbuotojų tipus:
 * private finished: boolean = false;
 * private payed: boolean = false;
 * private dateFinished?: Date;
-
 ##### metodai:
 * public completeJob = (): void
 * public setJobPayed = (): void
@@ -43,32 +42,33 @@ Turime 3 darbuotojų tipus:
 * public isPayed = (): boolean
 * public toString = (): string
 
+
 ### BuisnessLicencePerson extends Employee
 ##### savybės:
-      private jobs: Job[];
+* private jobs: Job[];
+##### metodai:
+* public calcPay = (): number
+* public override toString(): string
 
-    metodai:
-      public calcPay = (): number
-      public override toString(): string
 
 ### SelfEmployedPerson extends Employee 
 ##### savybės:
 * private hourPay: number;
 * private hoursWorked: number;
-
 ##### metodai:
 * public calcPay = (): number
 * public override toString(): string
+  
 
 ### WorkPerson extends Employee 
 ##### savybės:
 * private hourPay: number;
 * private fullTimeEquivalent: number;
-
 ##### metodai:
 * public calcPay = (): number
 * public override toString(): string
-* 
+  
+  
 ## Užduotis
 Jūsų praktikos darbo esmė, sukurti abstrakčias klases, kurios įpareigotų vaikes klases
 implementuoti abstrakčius metodus. Kiekviena konkreti klasė (SelfEmployedPerson, WorkPerson ir
