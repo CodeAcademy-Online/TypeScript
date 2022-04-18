@@ -10,7 +10,7 @@ Turime 3 darbuotojų tipus:
   * business-license-person - žmogus kuris gauna atlygį už atliktus darbus
 
 ## Klasių hierarchijos schema:
-[ss](./schema.jpg);                                        
+<img src="./schema.jpg">                                        
 
 ## Klasių schemos
 ### abstract Person 
