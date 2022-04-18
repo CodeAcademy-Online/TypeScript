@@ -15,7 +15,7 @@ class Vehicle {
     this.year = year;
   }
 
-  protected toStringVehicle = (): string => {
+  protected getString = (): string => {
     const { brand, model, year } = this;
 
     return `${brand} ${model} ${year}\n`;

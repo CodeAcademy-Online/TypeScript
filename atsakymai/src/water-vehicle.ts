@@ -14,7 +14,7 @@ class WaterVehicle extends Vehicle {
   }
 
   public override toString = (): string => {
-    return `${this.toStringVehicle()}\tmaksimalus gylis: ${this.maxDepth}`;
+    return `${this.getString()}\tmaksimalus gylis: ${this.maxDepth}`;
   };
 }
 

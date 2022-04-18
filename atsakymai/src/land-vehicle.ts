@@ -14,7 +14,7 @@ class LandVehicle extends Vehicle {
   }
 
   public override toString = (): string => {
-    return `${this.toStringVehicle()}\tpadangos: ${this.tires.join(', ')}`;
+    return `${this.getString()}\tpadangos: ${this.tires.join(', ')}`;
   };
 }
 

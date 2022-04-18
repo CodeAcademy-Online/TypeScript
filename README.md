@@ -22,10 +22,10 @@
   4.1 bendras savybes(brand, model, year) aprašykite su 'protected' pasiekiamumo lygiu.
   4.2 perrrašykite visų klasių konstruktorius, jog bendros savybės (brand, model, year) būtų perduotos tėviniam konstruktoriui
   
-5. Vehicle klasėje aprašykite metodą 'public toString(): string' kuris suformuotų pagindinė informaciją(brand, model, year)
+5. Vehicle klasėje aprašykite metodą 'public getString(): string' kuris suformuotų pagindinė informaciją(brand, model, year)
 
-6. Vehicle klasėje pakeiskite metodą 'public toString(): string' į 'PROTECTED toString(): string'. Kiekvienoje paveldinčioje
-  klasėje sukurkite metodus 'public toString(): string', kurios naudotų tėvinės klasės metodus metodą 'PROTECTED toString(): string'
+6. Vehicle klasėje pakeiskite metodą 'public getString(): string' į 'PROTECTED getString(): string'. Kiekvienoje paveldinčioje
+  klasėje sukurkite metodus 'public toString(): string', kurios naudotų tėvinės klasės metodus metodą 'PROTECTED getString(): string'
   tam kad suformuoti pilną savosios klasės reprezentaciją
 
 7. Tėvinės klasės Vehicle konstruktoriaus parametrus aprašykite objektu, ir perrašykite vaikinių klasių konstruktorius.

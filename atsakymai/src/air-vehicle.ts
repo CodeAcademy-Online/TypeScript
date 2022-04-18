@@ -14,7 +14,7 @@ class AirVehicle extends Vehicle {
   }
 
   public override toString = (): string => {
-    return `${this.toStringVehicle()}\tmaksimalus aukštis: ${this.maxAltitude}`;
+    return `${this.getString()}\tmaksimalus aukštis: ${this.maxAltitude}`;
   };
 }
 
