@@ -3,16 +3,15 @@
 Šios pamokos tikslas susikonfiguruoti projrektą naudojant webpack
 
 0. Pežiūrėkite vaizdo įrašus:
-  0.1. https://www.youtube.com/watch?v=X1nxTjVDYdQ&ab_channel=SwashbucklingwithCode
-  0.2. https://www.youtube.com/watch?v=4lpmVZdj12g&ab_channel=SwashbucklingwithCode
+ * 0.1. https://www.youtube.com/watch?v=X1nxTjVDYdQ&ab_channel=SwashbucklingwithCode
+ * 0.2. https://www.youtube.com/watch?v=4lpmVZdj12g&ab_channel=SwashbucklingwithCode
 
 1. Susikurkite node projektą:
-  npm init
+**npm init**
 
 2. Parsisiųskite projektą projektui reikalingas bilbiotekas VYSTYMUI, naudojant 'npm i -D':
 
 ```json
-...
 "@typescript-eslint/eslint-plugin": "^5.14.0",
 "@typescript-eslint/parser": "^5.14.0",
 "eslint": "^8.10.0",
@@ -26,41 +25,38 @@
 "webpack-dev-server": "^4.7.4",
 "webpack-merge": "^5.8.0",
 "html-webpack-plugin": "^5.5.0"
-...
 ```
 
 3. Sukurkite TypeScript konfigūracijos failą 'tsconfig.json' su tokiomis taisyklėmis:
 ```json
-...
 {
   "compilerOptions": {
-    "target": "es2017", // į kokią JavaScript versiją paversti kodą                 
-    "module": "commonjs", // Transpiliuojamų failų modulio tipas                        
-    "experimentalDecorators": true, // ar leisti naudoti dekoratorius               
-    "emitDecoratorMetadata": true, // ar sukurti dekoratorių aprašymų failą               
-    "sourceMap": true, // ar susieti transpiliuoto JavaScript failų eilutes su orginalių failų eilutėmis                           
-    "forceConsistentCasingInFileNames": true, // ar versti vadinti failus pagal vienodą failų įvardinimo sintaksę
-    "strict": true, // ar kodas privalo būti griežtos sintaksės                            
-    "noImplicitAny": true, // ar drausti palikti kintamuosius be tipų                       
-    "strictNullChecks": true, // griežtas null tipo kintamųjų tikrinimas                    
-    "strictFunctionTypes": true, // griežtas funkcijų aprašymas                 
-    "strictBindCallApply": true, // this reikšmės aprašymas, atliekant Function.bind, Function.call ir Function.apply metodus                 
-    "noImplicitThis": true, // this nuorodos aprašymo reikalavimas                      
-    "alwaysStrict": true, // ar JavaScript failams pridėti 'use strict'                        
-    "noUnusedLocals": true, // ar drausti nepanaudotus kintamuosius
-    "noUnusedParameters": true, // ar drausti nepanaudotus funkcijos parametrus                
-    "exactOptionalPropertyTypes": true, // reikalauti tiksliai aprašytų objekto savybių            
-    "noImplicitReturns": true, // reikalavimas apibūtinti funkcijų grąžinimo tipus                   
-    "noFallthroughCasesInSwitch": true, // switch direktyvos sugriežtinimas
-    "noImplicitOverride": true, // reikalavimas įvardinti  aktažodžiu 'override' jeigu perrašome funkcijas
-    "removeComments": true, // ar pašalinti komentarus sukompiliuotuose failuose                    
-    "skipLibCheck": true // ar praleisti tipų tikrinimą naudojant bibliotekas
+    "target": "es2017",
+    "module": "commonjs",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "sourceMap": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "exactOptionalPropertyTypes": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "removeComments": true,
+    "skipLibCheck": true
   },
 }
-...
 ```
 
-1. Sukurkite bendrų webpack traspiliavimo nustatymų failą 'webpack.config.common.js':
+4. Sukurkite bendrų webpack traspiliavimo nustatymų failą 'webpack.config.common.js':
 ```js
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -80,7 +76,7 @@ module.exports = {
         exclude: [
           path.resolve(__dirname, "node_modules")
         ],
-        // Actions:
+       
         loader: "ts-loader",
       },
     ],
@@ -95,7 +91,7 @@ module.exports = {
 }
 ```
 
-2. Sukurkite webpack vystymo aplikos konfigūracijos failą 'webpack.config.dev.js':
+5. Sukurkite webpack vystymo aplikos konfigūracijos failą 'webpack.config.dev.js':
 ```js
 const path = require('path');
 const { merge } = require('webpack-merge');
@@ -115,7 +111,7 @@ module.exports = merge(webpackCommon, {
 });
 ```
 
-3. Sukurkite webpack produkcinės aplikos konfigūracijos failą 'webpack.config.prod.js':
+6. Sukurkite webpack produkcinės aplikos konfigūracijos failą 'webpack.config.prod.js':
 ```js
   const { merge } = require('webpack-merge');
   const webpackCommon = require('./webpack.config.common');
@@ -125,7 +121,7 @@ module.exports = merge(webpackCommon, {
   });
 ```
 
-4. Sukurkite eslint kodo rašymo kokybės nustatymus faile '.eslintrc.js':
+7. Sukurkite eslint kodo rašymo kokybės nustatymus faile '.eslintrc.js':
 ```js
 module.exports = {
   env: {
@@ -154,32 +150,30 @@ module.exports = {
 };
 ```
 
-5. Sukurkite '.eslintignore' failą ir jame išsaugokite failų sąrašą, kuriems nebus taikomos eslint taisyklės:
+8. Sukurkite '.eslintignore' failą ir jame išsaugokite failų sąrašą, kuriems nebus taikomos eslint taisyklės:
 ```
   .eslintrc.js
   public
   webpack.config*
 ```
 
-6. Sukurkite '.gitignore' failą, kuriame nurodysite kurių failų nesinchronizuoti su projekto repozitorijos pakitimais:
+9. Sukurkite '.gitignore' failą, kuriame nurodysite kurių failų nesinchronizuoti su projekto repozitorijos pakitimais:
 ```
   public
   node_modules
 ```
 
-7.  Sukurkite projekto paleidimo komandas faile 'package.json':
+10.  Sukurkite projekto paleidimo komandas faile 'package.json':
 ```json
   {
-    ...
     "scripts": {
       "build": "webpack --config webpack.config.prod.js",
       "start": "webpack serve --config webpack.config.dev.js"
     },
-    ...
   }
 ```
 
-8.  Sukurkite VSCode redaktoriaus nustatymų failą '.vscode/settings.json', kuriame nurodysime formatavimą išsaugojus:
+11.  Sukurkite VSCode redaktoriaus nustatymų failą '.vscode/settings.json', kuriame nurodysime formatavimą išsaugojus:
 ```json
 {
   "editor.codeActionsOnSave": {
@@ -188,7 +182,7 @@ module.exports = {
 }
 ```
 
-9.  Sukurkite failą 'src/main.ts', kuriame parašykite patikrinimo komandas, pvz.: 
+12.  Sukurkite failą 'src/main.ts', kuriame parašykite patikrinimo komandas, pvz.: 
 ```ts
   const a: number = 7;
   console.log(a);
@@ -196,7 +190,7 @@ module.exports = {
   console.log(a);
 ```
 
-10. Sukurkite HTML šablono failą 'src/index.html':
+13. Sukurkite HTML šablono failą 'src/index.html':
 ```html
   <!DOCTYPE html>
   <html lang="en">
@@ -222,8 +216,10 @@ module.exports = {
   </html>
 ```
 
-11. Paleiskite projektą vystymui 'npm start'
+14. Įsirašykite bibliotekas 'npm i'
 
-12. Paleiskite projektą vystymui 'npm run build'
+15. Paleiskite projektą vystymui 'npm start'
 
-13. Suformuokite bent 3 klausimus raštu, kurie bus atsakyti sekančiojo pamokoje.
+16. Paleiskite projektą vystymui 'npm run build'
+
+17. Suformuokite bent 3 klausimus raštu, kurie bus atsakyti sekančiojo pamokoje.
