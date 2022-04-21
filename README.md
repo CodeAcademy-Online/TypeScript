@@ -68,5 +68,5 @@ Atvaizduoti duomenis HTML lentele, pagal esybių schemą.
   * Kodo dalis, kurios gali būti perpanaudotos iškelkite į atskiras funkcijas aplanke __helpers__
 
 
-
-  
+## Atsakymai
+   * Gali peržiūrėti sprendimą aplanke __./atsakymas__
