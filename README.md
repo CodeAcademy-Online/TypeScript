@@ -1,10 +1,6 @@
 # TypeScript - Kompleksinė užduotis 1
 
-Šios pamokos tikslas susikonfiguruoti projrektą naudojant webpack
-
-0. Pežiūrėkite vaizdo įrašus:
- * 0.1. https://www.youtube.com/watch?v=X1nxTjVDYdQ&ab_channel=SwashbucklingwithCode
- * 0.2. https://www.youtube.com/watch?v=4lpmVZdj12g&ab_channel=SwashbucklingwithCode
+Šios pamokos tikslas susikonfiguruoti projekto darbinę aplinką naudojant webpack
 
 1. Susikurkite node projektą:
 **npm init**
