@@ -2,7 +2,7 @@
 
 ## Užduoties tikslas
 
-Tęsiame praeitos pamokos darbą naudodami tą patį projektą. Praeitos pamokos pabaigia, yra šios pamokos pradžia.
+Tęsiame praeitos pamokos darbą naudodami tą patį projektą. Praeitos pamokos pabaiga, yra šios pamokos pradžia.
 Jūsų pamokos tikslas įgalinti duomenų trynimą ir filtravimą.
 
 ## Eiga
