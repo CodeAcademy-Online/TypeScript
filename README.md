@@ -75,6 +75,13 @@ Jūsų pamokos tikslas įgalinti duomenų kūrimą - naujos mašinos sukūrimą.
        2. __handleCreateCar__ metode, pridėkite mašiną naudojant __CarsCollection.add__ metodą ir po pridėjimo kvieskite metodą __App.renderView__
 
 ## Papildomai
+
+Atlikus užduotis, pabandykite suvienodinti:
+  * metodų pavadinimus
+  * kintamųjų pavadinimus
+  * kontruktorių veikimus
+  * duomenų atnaujinimo logiką
+  * duomenų perdavimo logiką
   
 Pabandykite susitarti su kolega-studentu, kad peržiūrėtumėte viens kito sprendimus. 
 Padiskutuokite, suformuokite klausimus. Išsimiegokite.
