@@ -2,7 +2,6 @@
 
 ## Užduoties tikslas
 
-
 Tęsiame praeitos pamokos darbą naudodami tą patį projektą. Praeitos pamokos pabaigia, yra šios pamokos pradžia.
 Jūsų pamokos tikslas įgalinti vizualiai matomų duomenų trynimą ir filtravimą.
 
@@ -10,14 +9,14 @@ Jūsų pamokos tikslas įgalinti vizualiai matomų duomenų trynimą ir filtravi
 
 ### Filtravimas - pagal markę
 1. Sukurkite komponentą SelectField, skirtą pasirinkti automobilių markei
-  1. Sukurkite komponentą, kuris atvaizduoja bet kokius 3 pasirinkimus
-  2. Išanalizuokite ko reikia, kad sukurti vieną pasirinkimą
-  3. Perduokite masyvą tokių pasirinkimų formuojat komponentą (konstruktoriui)
-  4. Priimkite funkciją, kurią iškviesite pasikeitus <select> reikšmei
-  5. Sukurkite SelectField komponentą App klasėje ir atvaizduokite jį virš lentelės
+   1. Sukurkite komponentą, kuris atvaizduoja bet kokius 3 pasirinkimus
+   2. Išanalizuokite ko reikia, kad sukurti vieną pasirinkimą
+   3. Perduokite masyvą tokių pasirinkimų formuojat komponentą (konstruktoriui)
+   4. Priimkite funkciją, kurią iškviesite pasikeitus __&lt; select &gt;__ reikšmei
+   5. Sukurkite SelectField komponentą App klasėje ir atvaizduokite jį virš lentelės
 2. CarCollection klasėje sukurkite metodą, kuris pasirinktų mašina pagal markės id
 3. Sukurkite metodą Table klasėje, kad būtų galima atnaujinti duomenis naudojant viešą metodą
-4. Reaguojant į SelectField[1.] pakitusią reikšmę, panaudokite ją, kad gauti mašinas[2.] iš klasės CarCollection. Gavus naujas reikšmes, perduokite jas Table komponentui[3.].
+4. Reaguojant į SelectField pakitusią reikšmę, panaudokite ją, kad gauti mašinas iš klasės CarCollection. Gavus naujas reikšmes, perduokite jas Table komponentui.
 
   
 ### Trynimas - pagal mašinos id
