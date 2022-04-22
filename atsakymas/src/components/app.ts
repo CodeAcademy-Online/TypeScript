@@ -47,30 +47,19 @@ class App {
     this.initialize();
   }
 
-  public initialize = (): void => {
-    const container = document.createElement('div');
-    container.className = 'container my-4 d-flex  flex-column gap-3';
-    container.append(
-      this.brandSelect.htmlElement,
-      this.carTable.htmlElement
-    );
-
-    this.htmlElement.append(container);
-  };
-
-  private handleBrandChange = (brandId: string) => {
+  private handleBrandChange = (brandId: string): void  => {
     this.selectedBrandId = brandId;
 
     this.update();
   }
 
-  private handleCarDelete = (carId: string) => {
+  private handleCarDelete = (carId: string): void => {
     this.carsCollection.deleteCarById(carId);
 
     this.update();
   }
 
-  private update = () => {
+  private update = (): void => {
     const { selectedBrandId, carsCollection } = this;
 
     if (selectedBrandId === null) {
@@ -88,6 +77,17 @@ class App {
       });
     }
   }
+  
+  public initialize = (): void => {
+    const container = document.createElement('div');
+    container.className = 'container my-4 d-flex  flex-column gap-3';
+    container.append(
+      this.brandSelect.htmlElement,
+      this.carTable.htmlElement
+    );
+
+    this.htmlElement.append(container);
+  };
 }
 
 export default App;

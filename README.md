@@ -5,24 +5,89 @@
 Tęsiame praeitos pamokos darbą naudodami tą patį projektą. Praeitos pamokos pabaiga, yra šios pamokos pradžia.
 Jūsų pamokos tikslas įgalinti duomenų trynimą ir filtravimą.
 
+Ši užduotis nėra lengva, todėl atidžiai sekite instrukcijas __Eiga__ skiltyje. Po kiekvieno punkto peržiūrėkite atsakymus. 
+
+## Komponentų metodai ir savybės
+  
+### App
+#### Savybės
+* private carsCollection: CarsCollection;
+* private selectedBrandId: null | string;
+* private brandSelect: SelectField
+* private carTable: Table&lt;StringifyObjectProps&lt;CarJoined&gt;&gt;;
+* private htmlElement: HTMLElement;
+#### Metodai
+* private handleBrandChange = (brandId: string): void
+* private handleCarDelete = (carId: string): void 
+* private update = (): void 
+* public initialize = (): void
+
+### Table
+#### Savybės
+* private props: TableProps<Type>;
+* private tbody: HTMLTableSectionElement;
+* private thead: HTMLTableSectionElement;
+* public htmlElement: HTMLTableElement;
+#### Metodai
+* private initialize = (): void 
+* private renderView = (): void
+* private renderSelectOptions = (): void 
+
+### SelectField
+#### Savybės
+* private static uniqId = 0;
+* private props: SelectFieldProps;
+* private htmlSelectElement: HTMLSelectElement;
+* private htmlLabelElement: HTMLLabelElement;
+* public htmlElement: HTMLDivElement;
+#### Metodai
+* private checkColumnsCompatability = (): void
+* private initialize = (): void
+* private renderView = (): void
+* private renderHeadView = (): void
+* private renderBodyView = (): void
+* private addActionsCell = (rowHtmlElement: HTMLTableRowElement, id: string): void
+* public updateProps = (newProps: Partial<TableProps<Type>>): void
+
+### CarsCollection
+#### Savybės
+* props: CarsCollectionProps;
+#### Metodai
+* private joinCar = ({ modelId, ...car }: Car)
+* public get all(): CarJoine
+* public getByBrandId = (brandId: string): CarJoined[]
+* public deleteCarById = (carId: string): void
 ## Eiga
 
+Atsidarykite atsakymų aplanką. įsirašykite bibliotekas, pasileiskite projektą.
+Peržiūrėjus veikimą, tuomet peržiūrėkite kodą.
+
+Susipažinus su rezultatu, pradėkite jį vystyti aplanke __./pradiniai failai__.
+Po kiekvieno punkto, pasitikrinkite su atsakymų aplanku.
+
 ### Filtravimas - pagal markę
-1. Sukurkite komponentą SelectField, skirtą pasirinkti automobilių markei
-   1. Sukurkite komponentą, kuris atvaizduoja bet kokius 3 pasirinkimus
-   2. Išanalizuokite ko reikia, kad sukurti vieną pasirinkimą
+1. Sukurkite komponentą __SelectField__, skirtą pasirinkti automobilių markei
+   1. Pirmiausiai įgalinkite atvaizdavimą, kuris rodytų bet kokius 3 pasirinkimus naudojant __&lt; select &gt;__
+   2. Išanalizuokite kokių parametrų reikia, kad suformuoti pasirinkimą? Kelis pasirinkimus?
    3. Perduokite masyvą tokių pasirinkimų formuojat komponentą (konstruktoriui)
-   4. Priimkite funkciją, kurią iškviesite pasikeitus __&lt; select &gt;__ reikšmei
-   5. Sukurkite SelectField komponentą App klasėje ir atvaizduokite jį virš lentelės
-2. CarCollection klasėje sukurkite metodą, kuris pasirinktų mašina pagal markės id
-3. Sukurkite metodą Table klasėje, kad būtų galima atnaujinti duomenis naudojant viešą metodą
-4. Reaguojant į SelectField pakitusią reikšmę, panaudokite ją, kad gauti mašinas iš klasės CarCollection. Gavus naujas reikšmes, perduokite jas Table komponentui.
+   4. Naudojant konstruktoriaus parametrus priimkite funkciją, kurią iškviesite pasikeitus __&lt; select &gt;__ reikšmei
+   5. Panaudokite __SelectField__ komponentą App klasėje ir prijunkite jį virš lentelės
+2. __CarCollection__ klasėje sukurkite metodą __getByBrandId__, kuris pasirinktų mašinas pagal markės id
+3. __Table__ klasėje sukurkite metodą __updateProps__, kuris atnaujins Lentelės parametrus. Po lentelės parametrų atnaujinimo reikia atnaujinti ir lentelės atvaizdavimą, tam sukurkite metodą __renderView__. Šį metodą panaudokite ir pirminiui atvaizdavimui.
+4. __App__ komponente sukurkite funkciją __handleBrandChange__ kuri suderintų vaikinių komponentų tarpusavio veikimą. Šią funkciją(__handleBrandChange__) perduokite __SelectField__ komponentui, kad pasikeitus  __&lt; select &gt;__  pasirinkimui, išsikviestų __handleBrandChange__. Išsikvietus __handleBrandChange__ funkcijai pakeiskite klasėje saugomą savybę __selectedBrandId__ ir incijuokite komponento atnaujinimą kviečiant funkciją __update__.
+5. __App__ komponento metode __update__ aprašykite logiką, kaip turi būti atnaujinami lentelės duomenis pagal esamas savybes __selectedBrandId__ ir __carsCollection__.
+
+![](./filter-example.gif)
 
 ### Trynimas - pagal mašinos id
-1. Table komponente papildykite kiekvieną lentelės eilutę stulpeliu, kuriame būtų ištrynimo mygtukas
-2. Table komponente papildykite priimamus prop'sus funkcija - onDelete, kuri būtų iškviečiama paspaudus ištrynimo mygtuką. Kviečiant funkciją onDelete nepamirškite perduoti tos mašinos 'id' kurią reikia ištrinti
-3. CarsCollection klasėje implementuokite ištrynimo logiką
-4. App klasėje aprašykite metodą kuris ištrintų reikiamą mašiną pagal id ir atnaujintų duomenis lentelėje, ir parduokite metodo nuorodą lentelės Table komponentui.
+1. __Table__ komponente papildykite kiekvieną lentelės eilutę stulpeliu, kuriame būtų ištrynimo mygtukas
+2. __Table__ komponente papildykite priimamus prop'sus funkcija - __onDelete__, kuri būtų iškviečiama paspaudus ištrynimo mygtuką. Kviečiant funkciją __onDelete__ nepamirškite perduoti tos mašinos 'id' kurią reikia ištrinti.
+3. __CarsCollection__ klasėje implementuokite ištrynimo logiką, metode __deleteCarById__
+4. __App__ klasėje aprašykite metodą __handleCarDelete__ kuris ištrintų reikiamą mašiną pagal id naudojant __CarsCollection.deleteCarById__. Po ištrynimo incijuokite __App.update__ metodą.
+
+![](./delete%20example.gif)
+
+## Papildomai
 
 Atlikus užduotis, pabandykite suvienodinti:
   * metodų pavadinimus
@@ -30,8 +95,6 @@ Atlikus užduotis, pabandykite suvienodinti:
   * kontruktorių veikimus
   * duomenų atnaujinimo logiką
   * duomenų perdavimo logiką
-
-## Papildomai
   
 Pabandykite susitarti su kolega-studentu, kad peržiūrėtumėte viens kito sprendimus. 
 Padiskutuokite, suformuokite klausimus. Išsimiegokite.

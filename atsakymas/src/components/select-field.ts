@@ -32,7 +32,7 @@ class SelectField {
     this.renderView();
   }
 
-  private initialize = () => {
+  private initialize = (): void => {
     const elementId = `select-${SelectField.uniqId}`;
 
     this.htmlLabelElement.setAttribute('for', elementId);

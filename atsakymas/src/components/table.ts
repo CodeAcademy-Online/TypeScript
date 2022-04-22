@@ -100,7 +100,7 @@ class Table<Type extends RowData> {
     this.tbody.append(...rowsHtmlElements);
   };
 
-  private addActionsCell = (rowHtmlElement: HTMLTableRowElement, id: string) => {
+  private addActionsCell = (rowHtmlElement: HTMLTableRowElement, id: string): void => {
     const { onDelete } = this.props;
 
     const buttonCell = document.createElement('td');
@@ -116,7 +116,7 @@ class Table<Type extends RowData> {
     rowHtmlElement.append(buttonCell);
   };
 
-  public updateProps = (newProps: Partial<TableProps<Type>>) => {
+  public updateProps = (newProps: Partial<TableProps<Type>>): void => {
     this.props = {
       ...this.props,
       ...newProps
