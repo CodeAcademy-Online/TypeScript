@@ -69,4 +69,4 @@ Atvaizduoti duomenis HTML lentele, pagal esybių schemą.
 
 
 ## Atsakymai
-   * Gali peržiūrėti sprendimą aplanke __./atsakymas__
+   * GaliTE peržiūrėti sprendimą aplanke __./atsakymas__
