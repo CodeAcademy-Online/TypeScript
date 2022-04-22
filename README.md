@@ -18,7 +18,6 @@ Jūsų pamokos tikslas įgalinti duomenų trynimą ir filtravimą.
 3. Sukurkite metodą Table klasėje, kad būtų galima atnaujinti duomenis naudojant viešą metodą
 4. Reaguojant į SelectField pakitusią reikšmę, panaudokite ją, kad gauti mašinas iš klasės CarCollection. Gavus naujas reikšmes, perduokite jas Table komponentui.
 
-  
 ### Trynimas - pagal mašinos id
 1. Table komponente papildykite kiekvieną lentelės eilutę stulpeliu, kuriame būtų ištrynimo mygtukas
 2. Table komponente papildykite priimamus prop'sus funkcija - onDelete, kuri būtų iškviečiama paspaudus ištrynimo mygtuką. Kviečiant funkciją onDelete nepamirškite perduoti tos mašinos 'id' kurią reikia ištrinti
@@ -31,6 +30,8 @@ Atlikus užduotis, pabandykite suvienodinti:
   * kontruktorių veikimus
   * duomenų atnaujinimo logiką
   * duomenų perdavimo logiką
+
+## Papildomai
   
 Pabandykite susitarti su kolega-studentu, kad peržiūrėtumėte viens kito sprendimus. 
 Padiskutuokite, suformuokite klausimus. Išsimiegokite.
