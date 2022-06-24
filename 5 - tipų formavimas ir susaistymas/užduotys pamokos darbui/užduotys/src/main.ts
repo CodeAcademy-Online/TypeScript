@@ -145,26 +145,14 @@ console.group('1. Tipų indeksai');
   // 10 min
   console.groupCollapsed('1.1. Sukurkite tipą Address naudodami tipą User. Parašykite funkciją "getUserAddress", kuri priima vartotoją (User) ir grąžina vartotojo adresą (Address)');
   {
-    type Address = User['address'];
 
-    const getUserAddress = (user: User): Address => user.address;
-
-    const usersAddresses: Address[] = users.map(getUserAddress);
-
-    console.table(usersAddresses);
   }
   console.groupEnd();
 
   // 5 min
   console.groupCollapsed('1.2. Sukurkite tipą Company naudodami tipą User. Parašykite funkciją "getUserCompany", kuri priima vartotoją (User) ir grąžina vartotojo kompaniją (Company)');
   {
-    type Company = User['company'];
 
-    const getUserCompany = (user: User): Company => user.company;
-
-    const usersCompanies: Company[] = users.map(getUserCompany);
-
-    console.table(usersCompanies);
   }
   console.groupEnd();
 }
@@ -190,13 +178,7 @@ console.group('2. Pagalbiniai tipai');
   // 10 min
   console.groupCollapsed('2.1. Sukurkite funkciją "selectWithColor" kurti atrenka visas mašinas turinčias aprašytą spalvą, ir aprašykite joms tipą BMWCarFull su visomis privalomomis savybėmis');
   {
-    type FullyDescribedBMWCar = Required<BMWCar>;
 
-    const selectWithColor = (car: BMWCar) => Boolean(car.color)
-
-    const fullyDescribedCars = cars.filter(selectWithColor) as FullyDescribedBMWCar[];
-
-    console.table(fullyDescribedCars);
   }
   console.groupEnd();
 
@@ -204,18 +186,7 @@ console.group('2. Pagalbiniai tipai');
   // 15 min
   console.groupCollapsed('2.2. Sukurkite funkciją "refactorBmwCar" kurti perkuria mašiną.  Pašalina mašinos savybė brand, o model savybę pakeičia taip, kad joje būtų markė ir modelis atskirta tarpu. Visos kitos savybės paliekamos tokios pat');
   {
-    type RefactoredBMWCar = Omit<BMWCar, 'brand' | 'model'> & {
-      model: `${BMWCar['brand']} ${BMWCar['model']}`
-    };
 
-    const refactorBmwCar = ({ brand, model, ...rest }: BMWCar): RefactoredBMWCar => ({
-      ...rest,
-      model: `${brand} ${model}`
-    })
-
-    const refactoredCars = cars.map(refactorBmwCar) as RefactoredBMWCar[];
-
-    console.table(refactoredCars);
   }
   console.groupEnd();
 }
@@ -241,53 +212,7 @@ console.group('3. Tipų apjungimas ir “&” sankirtos operatorius');
     * Type index'es
   */
   {
-    type UserRegistration = Omit<User, 'cartItems'> & {
-      emailConfirmation: User['email'],
-      passwordConfirmation: User['password'],
-    };
 
-    const registerUser = ({
-      email,
-      emailConfirmation,
-      password,
-      passwordConfirmation,
-      ...userProps
-    }: UserRegistration): User | null => {
-      if (email === emailConfirmation && password === passwordConfirmation) {
-        return {
-          ...userProps,
-          email,
-          password,
-          cartItems: [],
-        }
-      }
-
-      return null;
-    }
-
-    const userRegistrationValid: UserRegistration = {
-      surname: 'Dykuminis',
-      email: 'dziungliu.sniurs@maurum.lt',
-      emailConfirmation: 'dziungliu.sniurs@maurum.lt',
-      password: 'Tarzanas123',
-      passwordConfirmation: 'Tarzanas123',
-    };
-
-    const userRegistrationInvalid: UserRegistration = {
-      name: 'Skrebutis',
-      email: 'skrebutis.varsketis@sviestuotas.lt',
-      emailConfirmation: 'skrebutis.varsketis@sviestuotas.lt',
-      password: 'Su200gGrietines',
-      passwordConfirmation: 'Su250gGrietines',
-    };
-
-    console.log('Registration atempt:', JSON.stringify(userRegistrationValid, null, 4));
-    const registrationResult1 = registerUser(userRegistrationValid);
-    console.log('Result:', registrationResult1);
-
-    console.log('Registration atempt:', JSON.stringify(userRegistrationInvalid, null, 4));
-    const registrationResult2 = registerUser(userRegistrationInvalid);
-    console.log('Result:', registrationResult2);
   }
   console.groupEnd();
 }
@@ -314,66 +239,8 @@ console.group('4. Tipų susaistymas');
      * OOP: encapsulation 
    */
   {
-    type AccommodationGetters = {
-      [Key in keyof Accommodation as `get${Capitalize<Key>}`]: () => Accommodation[Key]
-    }
-
-    type AccommodationSetters = {
-      [Key in keyof Accommodation as `set${Capitalize<Key>}`]: (val: Accommodation[Key]) => void
-    }
-
-    type EncapsulatedAccomodation = AccommodationGetters & AccommodationSetters;
-
-    const encapsulateAccomodation = (accomodation: Accommodation): EncapsulatedAccomodation => {
-      const privateAccomodation: Accommodation = { ...accomodation };
-
-      return {
-        getAddress: () => privateAccomodation.address,
-        getSquares: () => privateAccomodation.squares,
-        getType: () => privateAccomodation.type,
-        setAddress: (val: Accommodation['address']) => privateAccomodation.address = val,
-        setSquares: (val: Accommodation['squares']) => privateAccomodation.squares = val,
-        setType: (val: Accommodation['type']) => privateAccomodation.type = val,
-      }
-    }
-
-    const accomodation1: Accommodation = {
-      address: 'Bernužėlių g. 17, Rokelių kaimas, Pasvalio raj.',
-      squares: 224,
-      type: 'House',
-    };
-    console.log('Encapsulating accomodation1:', JSON.stringify(accomodation1, null, 4));
-    const encapsulatedAccomodation1 = encapsulateAccomodation(accomodation1);
-    console.log('Changing properties using setters...')
-    encapsulatedAccomodation1.setAddress('Bernužėlių g. 17, Rokelių kaimas, Biržų raj.')
-    encapsulatedAccomodation1.setSquares(180);
-    console.log('using getters after changes', {
-      'getAddress()': encapsulatedAccomodation1.getAddress(),
-      'getSquares()': encapsulatedAccomodation1.getSquares(),
-      'getType()': encapsulatedAccomodation1.getType(),
-    });
-    console.log('-----');
-
-
-    const accomodation2: Accommodation = {
-      address: 'Vilniaus g. 26a, Kaunas',
-      squares: 64,
-      type: 'Flat',
-    };
-
-    console.log('Encapsulating accomodation2:', JSON.stringify(accomodation2, null, 4));
-    const encapsulatedAccomodation2 = encapsulateAccomodation(accomodation2);
-    console.log('Changing properties using setters...')
-    encapsulatedAccomodation2.setSquares(110);
-    encapsulatedAccomodation2.setType('House');
-    console.log('using getters after changes', {
-      'getAddress()': encapsulatedAccomodation2.getAddress(),
-      'getSquares()': encapsulatedAccomodation2.getSquares(),
-      'getType()': encapsulatedAccomodation2.getType(),
-    });
 
   }
   console.groupEnd();
-
 }
 console.groupEnd();
