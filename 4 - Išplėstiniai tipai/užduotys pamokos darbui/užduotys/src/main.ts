@@ -40,7 +40,7 @@
     * Atlikę užduotį, užduokite sau klausimą: "Ar tai geriausia ką galėjau?"
     * Įsigilinimas jūsų žinias iš supratimo perkelia į suvokimą. Tik suvokiant dalykus, galite
       žinias pritaikyti kūrybiškai. Iš to seka, kad užduoties atlikimo kokybė >>> užduočių kiekis
-    * Užduočių rezultatų pateikimas tike pat svarbus, kiek sprendimas.
+    * Užduočių rezultatų pateikimas tiek pat svarbus, kiek sprendimas.
 
 */
 
