@@ -1,11 +1,15 @@
 Užduočių sprendimas paskaitų metu - "užduotys pamokos darbui/":
-  * Virš užduočių parašytas laikas tai kiek studentai turi spręsti užduotis savarankiškai.
-    * Turi užtenkti laiko studentų patobulinti savo kodą
-    * laikas įsigilinimui
+  * Virš užduočių parašytas laikas - tai kiek studentai turi spręsti užduotis savarankiškai.
+    * Laikas įsigilinimui
+    * Turi užtenkti laiko studentui patobulinti savo kodą
     * Savarankiškai palyginti su atsakymais
     * Suformuoti gražų spausdinimą
     * Suformuoti klausimus
   * Rekomenduojama dėstytojui aiškinti užduotis, po joms skirto savarankiško sprendimo laiko.
   * Užduočių aiškinimas, gyvas sprendimas, ir klausimų atsakymai neįeina į rekomenduojamą laiką.
   * Studentai, kurie atliko užduotis greičiau, gali pradėti spręsti savarankiškas užduotis (skirtas atlikti po pietų).
-  * Daryti pertraukas, kiek įmanoma, kas 50min
+  * Daryti pertraukas, kiek įmanoma, kas 50min.
+    ~ 8:05-8:55
+    ~ 9:05-9:55
+    ~ 10:05-10:55
+    ~ 11:05-12:00
