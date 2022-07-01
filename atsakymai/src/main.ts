@@ -1,53 +1,55 @@
 // ↓↓↓ Tipai ↓↓↓
-type ListNode<T> = {
-  data: T,
-  next: ListNode<T> | null
-};
+
 
 type ForEachCallback<T> = (value: T) => void;
 // ↑↑↑ Tipai ↑↑↑
 
 // ↓↓↓ Klasės ↓↓↓
+class ListNode<T> {
+  constructor(
+    public data: T,
+    public next: ListNode<T> | null = null
+  ) { }
+};
+
+
 // 1.
 class List<Type> {
   // 2.
   private head: ListNode<Type> | null;
-
   private tail: ListNode<Type> | null;
 
   // 2.
-  constructor(initialNode?: ListNode<Type>) {
-    if (initialNode !== undefined) {
-      this.head = initialNode;
-      this.tail = initialNode;
+  constructor(data?: Type) {
+    if (data !== undefined) {
+      this.head = new ListNode(data);
+      this.tail = this.head;
     } else {
       this.head = null;
       this.tail = null;
     }
   }
-
-  private addFirstElement = (node: ListNode<Type>) => {
-    this.head = node;
-    this.tail = node;
-  }
-
   // 3.
-  public addNodeStart = (node: ListNode<Type>): void => {
+  public unshift = (data: Type): void => {
+    const newNode = new ListNode(data);
     if (this.head === null) {
-      this.addFirstElement(node);
+      this.head = newNode;
+      this.tail = newNode;
     } else {
-      node.next = this.head;
-      this.head = node;
+      newNode.next = this.head;
+      this.head = newNode;
     }
   };
 
   // 4.
-  public addNodeEnd = (node: ListNode<Type>): void => {
+  public push = (data: Type): void => {
+    const newNode = new ListNode(data);
     if (this.tail === null) {
-      this.addFirstElement(node);
+      this.head = newNode;
+      this.tail = newNode;
     } else {
-      this.tail.next = node;
-      this.tail = node;
+      this.tail.next = newNode;
+      this.tail = newNode;
     }
   };
 
@@ -58,8 +60,8 @@ class List<Type> {
     let currentNode: ListNode<Type> = this.head;
 
     while (true) {
-      callback(currentNode.data);
       if (currentNode.next === null) break;
+      callback(currentNode.data);
       currentNode = currentNode.next;
     }
   };
@@ -67,30 +69,16 @@ class List<Type> {
 // ↑↑↑ Klasės ↑↑↑
 
 // ↓↓↓ Kintamuosius skirtus pavyzdžiams saugokite čia ↓↓↓
-// 1.
-const stringNode1: ListNode<string> = { data: 'labas', next: null };
-const stringNode2: ListNode<string> = { data: 'vakaras', next: stringNode1 };
-
 // 2. | 3. | 5.
 const stringList: List<string> = new List();
-
-const numberNode: ListNode<number> = { data: 5, next: null };
-const numberList: List<number> = new List(numberNode);
-
-// 3.
-const stringNodeToAdd1: ListNode<string> = { data: 'Serbentautas', next: null };
-const stringNodeToAdd2: ListNode<string> = { data: 'Vardas', next: null };
-const stringNodeToAdd3: ListNode<string> = { data: 'Mano', next: null };
-
-// 4.
-const numberNodeToAdd1: ListNode<number> = { data: 1, next: null };
-const numberNodeToAdd2: ListNode<number> = { data: 2, next: null };
-const numberNodeToAdd3: ListNode<number> = { data: 3, next: null };
+const numberList: List<number> = new List(5);
 
 // ↑↑↑ Kintamuosius skirtus pavyzdžiam saugokite čia ↑↑↑
 
 console.group('1. Sukurkitę sąrašo mazgo struktūrą ListNode, bet kokiam duomenų tipui');
 {
+  const stringNode1: ListNode<string> = { data: 'labas', next: null };
+  const stringNode2: ListNode<string> = { data: 'vakaras', next: stringNode1 };
   console.log({
     listNode1: stringNode1,
     listNode2: stringNode2,
@@ -108,40 +96,40 @@ console.group('2. Sukurkite sąrašo klasę List');
 }
 console.groupEnd();
 
-console.group('3. Sukurkite metodą pridėti sąrašo elementui į sąrašo priekį.');
+console.group('3. Sukurkite metodą pridėti elementui į sąrašo priekį.');
 {
   console.log('String sąrašas');
   console.log(stringList);
 
-  console.log('Pridedamas Mazgas 1', stringNodeToAdd1);
-  stringList.addNodeStart(stringNodeToAdd1);
+  console.log('Pridedamas 1', 'pirmas');
+  stringList.unshift('pirmas');
   console.log('Sąrašas po pridėjimo', { ...stringList });
 
-  console.log('Pridedamas Mazgas 2', stringNodeToAdd2);
-  stringList.addNodeStart(stringNodeToAdd2);
+  console.log('Pridedamas 2', 'antras');
+  stringList.unshift('antras');
   console.log('Sąrašas po pridėjimo', { ...stringList });
 
-  console.log('Pridedamas Mazgas 3', stringNodeToAdd3);
-  stringList.addNodeStart(stringNodeToAdd3);
+  console.log('Pridedamas Mazgas 3', 'trečias');
+  stringList.unshift('trečias');
   console.log('Sąrašas po pridėjimo', { ...stringList });
 }
 console.groupEnd();
 
-console.group('4. Sukurkite metodą pridėti sąrašo elementui į sąrašo priekį.');
+console.group('4. Sukurkite metodą pridėti elementui į sąrašo galą.');
 {
   console.log('String sąrašas');
   console.log(numberList);
 
-  console.log('Pridedamas Mazgas 1', numberNodeToAdd1);
-  numberList.addNodeEnd(numberNodeToAdd1);
+  console.log('Pridedamas Mazgas 1', 1);
+  numberList.push(1);
   console.log('Sąrašas po pridėjimo', { ...numberList });
 
-  console.log('Pridedamas Mazgas 2', numberNodeToAdd2);
-  numberList.addNodeEnd(numberNodeToAdd2);
+  console.log('Pridedamas Mazgas 2', 2);
+  numberList.push(2);
   console.log('Sąrašas po pridėjimo', { ...numberList });
 
-  console.log('Pridedamas Mazgas 3', numberNodeToAdd3);
-  numberList.addNodeEnd(numberNodeToAdd3);
+  console.log('Pridedamas Mazgas 3', 3);
+  numberList.push(3);
   console.log('Sąrašas po pridėjimo', { ...numberList });
 }
 console.groupEnd();
