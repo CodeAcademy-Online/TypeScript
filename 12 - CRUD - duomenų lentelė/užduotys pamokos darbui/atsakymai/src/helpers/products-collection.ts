@@ -33,7 +33,9 @@ class ProductsCollection {
     };
   };
 
-  public get all(): ProductJoined[] { return this.props.products.map(this.joinProduct); }
+  public get all(): ProductJoined[] {
+    return this.props.products.map(this.joinProduct);
+  }
 }
 
 export default ProductsCollection;

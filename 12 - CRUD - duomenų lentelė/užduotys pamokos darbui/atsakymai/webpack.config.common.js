@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
   entry: "./src/main.ts",
   resolve: {
-    extensions: ['.ts', '.js', '.json']
+    extensions: ['.ts', '.js']
   },
   output: {
     path: path.resolve(__dirname, "public"),
