@@ -71,10 +71,6 @@ Atvaizduoti duomenis HTML lentele, pagal esybių schemą.
 ## Rezultato pavyzdys
 ![](./result.png)
 
-## Papildomai
-  * Sukurkite lentelės duomenų patikrinimo funkciją, kuri tikrintų duomenų sutapimą su  antraštės stulpeliais
-  * Kodo dalis, kurios gali būti perpanaudotos iškelkite į atskiras funkcijas aplanke __helpers__
-
-
 ## Atsakymai
-   * GaliTE peržiūrėti sprendimą aplanke __./atsakymas__
+   * Galite peržiūrėti sprendimą aplanke __atsakymas__
+  
