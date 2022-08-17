@@ -17,8 +17,8 @@ class BuisnessLicencePerson extends Employee {
 
   public calcPay = (): number => {
     const unpayedFinishedJobs = this.jobs.filter((job) => job.isFinished() && !job.isPayed());
-    this.jobs.forEach((job) => job.setJobPayed());
     const calculatedPay = unpayedFinishedJobs.reduce((sum, job) => sum + job.getPay(), 0);
+    unpayedFinishedJobs.forEach((job) => job.setJobPayed());
 
     return calculatedPay;
   };
