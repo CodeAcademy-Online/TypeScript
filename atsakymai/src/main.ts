@@ -94,7 +94,7 @@ console.group('5. Parašykite funkciją, kuri sujungia tokių pat tipų masyvus 
 }
 console.groupEnd();
 
-console.group('6. Parašykite funkciją, kuri priimtų bet kokią reikšmę ir grąžintų objektą su savybėmis-funkcijomis "setValue" - reikšmei nustatyti ir "getValue" tai reikšmei nustatyti. Funkcijai perduota reikšmė neturi būti pasiekiama tiesiogiai.');
+console.group('6. Parašykite funkciją, kuri priimtų bet kokią reikšmę ir grąžintų objektą su savybėmis-funkcijomis "setValue" - reikšmei nustatyti ir "getValue" tai reikšmei gauti. Funkcijai perduota reikšmė neturi būti pasiekiama tiesiogiai.');
 {
   type IncapsulatedValueObject<Type> = {
     setValue: (newValue: Type) => void,
