@@ -126,7 +126,7 @@ module.exports = {
   },
   extends: [
     'airbnb-base',
-    'airbnb-typescript',
+    'airbnb-typescript/base',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
