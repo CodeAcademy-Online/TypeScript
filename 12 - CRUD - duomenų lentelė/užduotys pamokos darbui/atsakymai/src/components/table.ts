@@ -5,7 +5,7 @@ type RowData = {
   [key: string]: string,
 };
 
-export type TableProps<Type> = {
+export type TableProps<Type extends RowData> = {
   title: string,
   columns: Type,
   rowsData: Type[],
@@ -20,7 +20,7 @@ class Table<Type extends RowData> {
 
   private thead: HTMLTableSectionElement;
 
-  private static checkColumnsCompatability = <T>({ rowsData, columns }: TableProps<T>): void => {
+  private static checkColumnsCompatability = <T extends RowData>({ rowsData, columns }: TableProps<T>): void => {
     if (rowsData.length === 0) return;
     const columnCount = getPropCount(columns);
 
