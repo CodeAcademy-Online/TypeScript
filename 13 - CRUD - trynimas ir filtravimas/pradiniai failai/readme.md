@@ -15,8 +15,8 @@ Peržiūrėjus veikimą, tuomet peržiūrėkite kodą.
 Susipažinus su rezultatu, pradėkite jį vystyti aplanke __./pradiniai failai__.
 Po kiekvieno punkto, pasitikrinkite su atsakymų aplanku.
 
-### Filtravimas - pagal markę
-1. Sukurkite komponentą __SelectField__, skirtą pasirinkti automobilių markei
+### Filtravimas - pagal kategoriją
+1. Sukurkite komponentą __SelectField__, skirtą pasirinkti produktų kategoriją
    1. Pirmiausiai įgalinkite atvaizdavimą, kuris rodytų bet kokius 3 pasirinkimus naudojant __&lt; select &gt;__
    2. Išanalizuokite kokių parametrų reikia, kad suformuoti pasirinkimą? Kelis pasirinkimus?
    3. Perduokite masyvą tokių pasirinkimų formuojat komponentą (konstruktoriui)

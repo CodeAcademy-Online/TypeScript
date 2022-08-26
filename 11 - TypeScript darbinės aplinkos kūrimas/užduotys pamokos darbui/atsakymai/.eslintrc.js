@@ -5,7 +5,7 @@ module.exports = {
     },
     extends: [
         'airbnb-base',
-        'airbnb-typescript',
+        'airbnb-typescript/base',
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
@@ -17,9 +17,5 @@ module.exports = {
         '@typescript-eslint',
     ],
     rules: {
-        "comma-dangle": "off",
-        '@typescript-eslint/comma-dangle': [2],
-        'react/jsx-filename-extension': [0],
-        '@typescript-eslint/indent': [0]
     },
 };

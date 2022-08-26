@@ -22,7 +22,7 @@
     "removeComments": true,
     "skipLibCheck": true
   },
-  "includes": [
+  "include": [
     "src/main.ts"
   ]
 }
