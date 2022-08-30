@@ -6,6 +6,7 @@ import productsCategories from '../data/products-categories';
 import stringifyProps, { StringifiedObject } from '../helpers/stringify-props';
 import SelectField from './select-field';
 import ProductJoined from '../types/product-joined';
+import ProductForm from './product-form';
 
 type ProductRowData = Required<StringifiedObject<ProductJoined>>;
 
@@ -20,6 +21,8 @@ class App {
   private productsCollection: ProductsCollection;
 
   private productsTable: Table<ProductRowData>;
+
+  private productForm: ProductForm;
 
   private selectedCategoryId: string | null;
 
@@ -41,6 +44,19 @@ class App {
       },
       rowsData: this.productsCollection.all.map(formatProductRowData),
       onDelete: this.handleProductDelete,
+    });
+    this.productForm = new ProductForm({
+      submitBtnText: 'Sukurti',
+      title: 'Produkto sukūrimas',
+      values: {
+        title: '',
+        categories: [],
+        description: '',
+        price: 0.99,
+      },
+      onSubmit: (productValues) => {
+        console.log(productValues);
+      },
     });
   }
 
@@ -79,11 +95,18 @@ class App {
       options: categories.map(({ id, title }) => ({ value: id, title })),
     });
 
+    const contentWrapper = document.createElement('div');
+    contentWrapper.className = 'd-flex gap-3 mt-3 align-items-start';
+    contentWrapper.append(
+      this.productsTable.htmlElement,
+      this.productForm.htmlElement,
+    );
+
     const container = document.createElement('div');
-    container.className = 'container my-5';
+    container.className = 'container my-4';
     container.append(
       categorySelect.htmlElement,
-      this.productsTable.htmlElement,
+      contentWrapper,
     );
 
     this.htmlElement.append(container);
