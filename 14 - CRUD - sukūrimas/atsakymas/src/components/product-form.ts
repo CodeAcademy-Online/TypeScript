@@ -1,13 +1,9 @@
 import categories from '../data/categories';
 import CheckboxGroupField from './checkbox-group-field';
 import TextField from './text-field';
+import { ProductData } from '../helpers/products-collection';
 
-type ProductFormValues = {
-  title: string,
-  price: number,
-  categories: string[],
-  description: string
-};
+type ProductFormValues = ProductData;
 
 type ProductFormProps = {
   title: string,
@@ -82,14 +78,23 @@ class ProductForm {
     );
   };
 
+  private clearValues = () => {
+    this.titleField.updateProps({ initialValue: '' });
+    this.priceField.updateProps({ initialValue: '' });
+    this.categoriesField.updateProps({ selected: [] });
+    this.descriptionField.updateProps({ initialValue: '' });
+  };
+
   private updateOnSubmitCallback = () => {
     const { onSubmit } = this.props;
+    const { clearValues } = this;
 
     if (this.handleSubmit) {
       this.htmlElement.removeEventListener('submit', this.handleSubmit);
     }
 
-    this.handleSubmit = function handleSubmit() {
+    this.handleSubmit = function handleSubmit(e) {
+      e.preventDefault();
       const formData = new FormData(this);
       const formValues: ProductFormValues = {
         title: String(formData.get('title')),
@@ -99,6 +104,7 @@ class ProductForm {
       };
 
       onSubmit(formValues);
+      clearValues();
     };
 
     this.htmlElement.addEventListener('submit', this.handleSubmit);

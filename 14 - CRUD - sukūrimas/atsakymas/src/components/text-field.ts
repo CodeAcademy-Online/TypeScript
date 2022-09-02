@@ -44,7 +44,7 @@ class TextField {
 
     this.labelHtmlElement.innerHTML = labelText;
     this.inputHtmlElement.name = name;
-    if (initialValue) {
+    if (initialValue !== undefined) {
       this.inputHtmlElement.value = initialValue;
     }
   };

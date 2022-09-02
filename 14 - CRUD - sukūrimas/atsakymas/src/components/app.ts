@@ -1,4 +1,4 @@
-import ProductsCollection from '../helpers/products-collection';
+import ProductsCollection, { ProductData } from '../helpers/products-collection';
 import Table from './table';
 import products from '../data/products';
 import categories from '../data/categories';
@@ -9,6 +9,14 @@ import ProductJoined from '../types/product-joined';
 import ProductForm from './product-form';
 
 type ProductRowData = Required<StringifiedObject<ProductJoined>>;
+
+const ALL_CATEGORIES_ID = '-1';
+const ALL_CATEGORIES_TITLE = 'Visi produktai';
+
+const allCategoriesOption = {
+  title: ALL_CATEGORIES_TITLE,
+  value: ALL_CATEGORIES_ID,
+};
 
 const formatProductRowData = (productJoined: ProductJoined): ProductRowData => ({
   ...stringifyProps(productJoined),
@@ -34,7 +42,7 @@ class App {
     this.htmlElement = foundElement;
     this.selectedCategoryId = null;
     this.productsTable = new Table({
-      title: 'Visi produktai',
+      title: ALL_CATEGORIES_TITLE,
       columns: {
         id: 'Id',
         title: 'Pavadinimas',
@@ -52,21 +60,27 @@ class App {
         title: '',
         categories: [],
         description: '',
-        price: 0.99,
+        price: 0,
       },
-      onSubmit: (productValues) => {
-        console.log(productValues);
-      },
+      onSubmit: this.handleCreateProduct,
     });
   }
 
   private handleCategoryChange = (categoryId: string): void => {
-    this.selectedCategoryId = categoryId;
+    this.selectedCategoryId = categoryId === ALL_CATEGORIES_ID ? null : categoryId;
+
     this.update();
   };
 
   private handleProductDelete = (productId: string): void => {
-    this.productsCollection.deleteProductById(productId);
+    this.productsCollection.deleteById(productId);
+
+    this.update();
+  };
+
+  private handleCreateProduct = (productData: ProductData): void => {
+    this.productsCollection.add(productData);
+
     this.update();
   };
 
@@ -82,7 +96,7 @@ class App {
       }
     } else {
       this.productsTable.updateProps({
-        title: 'Visi produktai',
+        title: ALL_CATEGORIES_TITLE,
         rowsData: this.productsCollection.all.map(formatProductRowData),
       });
     }
@@ -92,7 +106,10 @@ class App {
     const categorySelect = new SelectField({
       labelText: 'Kategorija',
       onChange: this.handleCategoryChange,
-      options: categories.map(({ id, title }) => ({ value: id, title })),
+      options: [
+        allCategoriesOption,
+        ...categories.map(({ id, title }) => ({ value: id, title })),
+      ],
     });
 
     const contentWrapper = document.createElement('div');

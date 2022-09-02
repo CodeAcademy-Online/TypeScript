@@ -9,6 +9,15 @@ type ProductsCollectionProps = {
   productsCategories: ProductCategory[]
 };
 
+export type ProductData = {
+  title: string,
+  price: number,
+  categories: string[],
+  description: string
+};
+
+const createId = (): string => String(Math.floor(Math.random() * 10 ** 9));
+
 class ProductsCollection {
   private props: ProductsCollectionProps;
 
@@ -50,12 +59,36 @@ class ProductsCollection {
     return joinedProductsByCategory;
   }
 
-  public deleteProductById(productId: string): void {
+  public deleteById(productId: string): void {
     this.props.productsCategories = this.props.productsCategories
       .filter((productCategory) => productCategory.productId !== productId);
 
     this.props.products = this.props.products
       .filter((product) => product.id !== productId);
+  }
+
+  public add({
+    title,
+    price,
+    categories,
+    description,
+  }: ProductData): void {
+    const productId = createId();
+
+    const newProduct: Product = {
+      id: productId,
+      title,
+      price,
+      description,
+    };
+    this.props.products.push(newProduct);
+
+    const productsCategories: ProductCategory[] = categories.map((categoryId) => ({
+      id: createId(),
+      productId,
+      categoryId,
+    }));
+    this.props.productsCategories.push(...productsCategories);
   }
 }
 
