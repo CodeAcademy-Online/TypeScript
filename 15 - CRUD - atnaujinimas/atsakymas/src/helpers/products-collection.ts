@@ -13,7 +13,7 @@ export type ProductData = {
   title: string,
   price: number,
   categories: string[],
-  description: string
+  description?: string
 };
 
 const createId = (): string => String(Math.floor(Math.random() * 10 ** 9));
@@ -79,8 +79,9 @@ class ProductsCollection {
       id: productId,
       title,
       price,
-      description,
     };
+
+    if (description) newProduct.description = description;
     this.props.products.push(newProduct);
 
     const productsCategories: ProductCategory[] = categories.map((categoryId) => ({
@@ -89,6 +90,49 @@ class ProductsCollection {
       categoryId,
     }));
     this.props.productsCategories.push(...productsCategories);
+  }
+
+  public update(productId: string, { categories, ...newProductData }: ProductData): void {
+    const foundProductIndex = this.props.products.findIndex((product) => product.id === productId);
+    if (foundProductIndex === -1) return;
+
+    const availableCategoriesIds = this.props.categories.map((x) => x.id);
+
+    const foundCategoriesIds = categories
+      .filter((categoryId) => availableCategoriesIds.includes(categoryId));
+    if (foundCategoriesIds.length !== categories.length) return;
+
+    this.props.products[foundProductIndex] = {
+      ...this.props.products[foundProductIndex],
+      ...newProductData,
+    };
+
+    const newProductCategories = foundCategoriesIds.map((categoryId) => ({
+      id: createId(),
+      productId,
+      categoryId,
+    }));
+
+    this.props.productsCategories = this.props.productsCategories
+      .filter((productCategory) => productCategory.productId !== productId);
+
+    this.props.productsCategories.push(...newProductCategories);
+  }
+
+  public getProductData(productId: string): ProductData | undefined {
+    const foundProduct = this.props.products.find((product) => product.id === productId);
+    if (foundProduct === undefined) return undefined;
+
+    const productCategoriesIds = this.props.productsCategories
+      .filter((productCategory) => productCategory.productId === productId)
+      .map((productCategory) => productCategory.categoryId);
+
+    const productData: ProductData = {
+      ...foundProduct,
+      categories: productCategoriesIds,
+    };
+
+    return productData;
   }
 }
 

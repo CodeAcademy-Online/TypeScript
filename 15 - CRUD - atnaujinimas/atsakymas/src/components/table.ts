@@ -9,6 +9,8 @@ export type TableProps<Type extends RowData> = {
   title: string,
   columns: Type,
   rowsData: Type[],
+  editedProductId: string | null,
+  onEdit: (id: string) => void,
   onDelete: (id: string) => void,
 };
 
@@ -75,22 +77,34 @@ class Table<Type extends RowData> {
   };
 
   private renderBodyView = (): void => {
-    const { rowsData, columns, onDelete } = this.props;
+    const {
+      rowsData, columns, editedProductId,
+      onEdit, onDelete,
+    } = this.props;
 
     this.tbody.innerHTML = '';
     const rowsHtmlElements = rowsData
       .map((rowData) => {
         const rowHtmlElement = document.createElement('tr');
+        if (rowData.id === editedProductId) {
+          rowHtmlElement.style.backgroundColor = '#faf2ac';
+        }
 
         const cellsHtmlString = [
           ...Object.keys(columns).map((key) => `<td>${rowData[key]}</td>`),
-          '<td><button class="btn btn-danger btn-sm">✖</button></td>',
+          `<td>
+            <button class="btn btn-danger btn-sm">✕</button>
+            <button class="btn btn-warning btn-sm">⟳</button>
+          </td>`,
         ].join(' ');
 
         rowHtmlElement.innerHTML = cellsHtmlString;
 
         const deleteBtn = rowHtmlElement.querySelector('.btn-danger') as HTMLButtonElement;
         deleteBtn.addEventListener('click', () => onDelete(rowData.id));
+
+        const editBtn = rowHtmlElement.querySelector('.btn-warning') as HTMLButtonElement;
+        editBtn.addEventListener('click', () => onEdit(rowData.id));
 
         return rowHtmlElement;
       });

@@ -18,17 +18,15 @@ Jūsų pamokos tikslas - įgalinti duomenų atnaujinimą - egistuojančio produk
    2. __App__ klasėje
       1. Sukurkite funkciją __handleProductEdit__ ir perduokite ją __productTable__ komponentui
       2. Sukurkite savybę __editedProductId__, kuri saugos šiuo metu redaguojamo produkto 'id'
-      3. Aprašykite __handleProductEdit__ logiką jog gavus produkto id, jis būtų nustatomas į savybe  __editedProductId__. Jeigu esama __editedProductId__ reikšmė lygi gautai reikšmei, nustatykite ją į null. Toks atvejis reiškia, kad buvo paspaustas tas pats mygtukas ir reikia atšaukti redagavimo rėžimą.
-      4. Po funkcionalumo įgalinimo perduokite iškvieskite metodą __renderView__
-
+      3. Aprašykite __handleProductEdit__ logiką jog gavus produkto id, jis būtų nustatomas į savybe  __editedProductId__. Jeigu esama __editedProductId__ reikšmė lygi gautai reikšmei, nustatykite ją į null. Toks atvejis reiškia, kad buvo paspaustas tas pats mygtukas ir reikia atšaukti redagavimo rėžimą. Taip pat iškvieskite metodą __update__.
    3. __Table__ klasėje
       1. Priimkite naują props'ą __editedProductId__
       2. Atvaizduojant eilutes, užsatykite foną tai eilutei, kurios __props.editedProductId__ yr lygus  iteruojamos eilutės __rowData.id__
-      3. __addActionsCell__ metode patikrinkite ar antru parametru gaunamas __id__ sutampa su __editedProductId__. Jeigu taip, pakeiskite mygtuko tekstą į 'Cancel' ir padarykite jį kitos spalvos.
+      3. Patikrinkite ar formuojamos eilutės id sutampa su __editedProductId__. Jeigu taip, uždėkite eiluitei spalvą.
 
    4. __App__ klasėje
       1. kontruktoriuje perduokite lentelei pradinę savybės reikšmę __editedProductId__
-      2. __renderView__ metode kiekvieną kartą __productTable__ komponentui perduokite esantį __editedProductId__
+      2. __update__ metode kiekvieną kartą __productTable__ komponentui perduokite esantį __editedProductId__
 <br/>
 <br/>
 
@@ -41,12 +39,13 @@ Jūsų pamokos tikslas - įgalinti duomenų atnaujinimą - egistuojančio produk
    2. __App__ klasėje
        1. kontruktoriuje __productForm__ komponentui perduokite  props'ą __isEdited__, pagal tai ar šiuo metu yra redaguojamas produktas
        2. sukurkite naują metodą __handleProductUpdate__ kuris priimtų tokius pat parametrus kaip __handleProductCreate__
-       3. __renderView__ metode formai perduokite savybes priklausomai nuo to ar redaguojama produktas
+       3. __ProductsCollection__ sukurkite metodą __getProductData__ gauti vienam apjungtam produktui pagalo id.
+       4. __update__ metode formai perduokite savybes priklausomai nuo to ar redaguojama produktas
           * title
           * submitBtnText
           * isEdited: true | false
           * onSubmit: __handleProductUpdate__ | __handleProductCreate__
-          * values: pradinės tuščios reikšmės | redaguojamo produkto reikšmės
+          * values: pradinės tuščios reikšmės | redaguojamo produkto duomenys
 <br/>
 <br/>
 
@@ -54,7 +53,7 @@ Jūsų pamokos tikslas - įgalinti duomenų atnaujinimą - egistuojančio produk
 1. __ProductsCollection__ klasėje:
    1. Sukurkite metodą __update__
       1. pirmu parametru priimkite atnaujininamos produkto id
-      2. antru parametru priimkite atnaujinamos produkto duomenis su tipu __ProductProps__
+      2. antru parametru priimkite atnaujinamos produkto duomenis su tipu __ProductData__
       3. patikrinkite ar egzistuoja:
          * produktas
          * kategorija
@@ -68,6 +67,9 @@ Jūsų pamokos tikslas - įgalinti duomenų atnaujinimą - egistuojančio produk
       3. atnaujinkite produktą naudodami __productsCollection__
       4. __editedProductId__ nustatykite į neberedaguojamą - null
       5. atnaujinkite atvaizdavimą kviesdami __renderView__
+
+## Galutinis rezultatas
+![](./update-and-edit-example.gif)
 
 ## Kodo švarinimas
 1. Sutvarkykite visas klases:

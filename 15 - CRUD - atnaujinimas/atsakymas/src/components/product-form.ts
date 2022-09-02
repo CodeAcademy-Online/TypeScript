@@ -5,11 +5,12 @@ import { ProductData } from '../helpers/products-collection';
 
 type ProductFormValues = ProductData;
 
-type ProductFormProps = {
+export type ProductFormProps = {
   title: string,
   submitBtnText: string,
-  values?: ProductFormValues,
+  isEdited: boolean,
   onSubmit: (values: ProductFormValues) => void,
+  values?: ProductFormValues,
 };
 
 class ProductForm {
@@ -64,9 +65,7 @@ class ProductForm {
   }
 
   private initialize = () => {
-    this.htmlElement.className = 'd-flex flex-column p-3 border gap-3';
     this.htmlElement.style.width = '450px';
-    this.btnHtmlElement.className = 'btn btn-success';
 
     this.htmlElement.append(
       this.headerHtmlElement,
@@ -123,16 +122,24 @@ class ProductForm {
       this.titleField.updateProps({ initialValue: title });
       this.priceField.updateProps({ initialValue: String(price) });
       this.categoriesField.updateProps({ selected: selectedCategories });
-      this.descriptionField.updateProps({ initialValue: description });
+      if (description !== undefined) {
+        this.descriptionField.updateProps({ initialValue: description });
+      }
     }
   };
 
   private renderView = () => {
-    const { title: headerText, submitBtnText } = this.props;
+    const { title: headerText, submitBtnText, isEdited } = this.props;
+    const color = isEdited ? 'warning' : 'success';
+
     this.updateOnSubmitCallback();
     this.renderFieldsView();
 
+    this.htmlElement.className = `d-flex flex-column p-3 border gap-3 border border-${color}`;
+
     this.headerHtmlElement.innerHTML = headerText;
+
+    this.btnHtmlElement.className = `btn btn-${color}`;
     this.btnHtmlElement.innerHTML = submitBtnText;
   };
 
