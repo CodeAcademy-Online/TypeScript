@@ -18,7 +18,7 @@ Jūsų pamokos tikslas - įgalinti duomenų atnaujinimą - egistuojančios maši
    2. __App__ klasėje
       1. Sukurkite funkciją __handleCarEdit__ ir perduokite ją __carTable__ komponentui
       2. Sukurkite savybę __editedCarId__, kuri saugos šiuo metu redaguojamos mašinos 'id'
-      3. Aprašykite __handleCarEdit__ logiką jog gavus mašinos id, jis būtų nustatomas į savybe  __editedCarId__. Jeigu esama __editedCarId__ reikšmė lygi gautai reikšmei, nustatykite ją į null. Toks atvejis reiškia, kad buvo paspaustas tas patss mygtukas ir reikia atšaukti redagavimo rėžimą.
+      3. Aprašykite __handleCarEdit__ logiką jog gavus mašinos id, jis būtų nustatomas į savybe  __editedCarId__. Jeigu esama __editedCarId__ reikšmė lygi gautai reikšmei, nustatykite ją į null. Toks atvejis reiškia, kad buvo paspaustas tas pats mygtukas ir reikia atšaukti redagavimo rėžimą.
       4. Po funkcionalumo įgalinimo perduokite iškvieskite metodą __renderView__
 
    3. __Table__ klasėje
@@ -27,7 +27,7 @@ Jūsų pamokos tikslas - įgalinti duomenų atnaujinimą - egistuojančios maši
       3. __addActionsCell__ metode patikrinkite ar  antru parametru gaunamas __id__ sutampa su __editedCarId__. Jeigu taip, pakeiskite mygtuko tekstą į 'Cancel' ir padarykite jį kitos spalvos.
 
    4. __App__ klasėje
-      1. kontruktoriuje perduokite lentelėj pradinę savybės reikšmę __editedCarId__
+      1. kontruktoriuje perduokite lentelei pradinę savybės reikšmę __editedCarId__
       2. __renderView__ metode kiekvieną kartą __carTable__ komponentui perduokite esantį __editedCarId__
 <br/>
 <br/>
@@ -91,4 +91,4 @@ Jūsų pamokos tikslas - įgalinti duomenų atnaujinimą - egistuojančios maši
    * Redaguojamo automobilio pašalinimas keičiant markės filtrą
    * Modelio filtro įgalinimas
    * Sukurkite abstrakčią klasę __Component__ kuri įpareigotų visus komponentus turėti tokius pačius metodų ir savybių pavadinimus
-   * Įgalinkite bendrą __Component__ klasės komponentų apjungimo logiką sukuriand metodą __append__
+   * Įgalinkite bendrą __Component__ klasės komponentų apjungimo logiką sukuriant metodą __append__
