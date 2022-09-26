@@ -60,8 +60,8 @@ class List<Type> {
     let currentNode: ListNode<Type> = this.head;
 
     while (true) {
-      if (currentNode.next === null) break;
       callback(currentNode.data);
+      if (currentNode.next === null) break;
       currentNode = currentNode.next;
     }
   };
@@ -117,7 +117,7 @@ console.groupEnd();
 
 console.group('4. Sukurkite metodą pridėti elementui į sąrašo galą.');
 {
-  console.log('String sąrašas');
+  console.log('Number sąrašas');
   console.log(numberList);
 
   console.log('Pridedamas Mazgas 1', 1);
