@@ -76,13 +76,13 @@ console.group('2. Implementuokite figūrų abstrakciją ir polimorfizmą naudoja
   // ↑↑↑↑ Klasės ↑↑↑↑
 
   // 5min
-  console.log('2.1. Sukurkite abstrakčią klasę Shape2D, kuri turėtų 2 abstrakčius metodus. Abu šie metodai neturi parametrų ir grąžina skaičių: "getPerimeter" ir "getArea"');
+  console.log('2.1. Sukurkite interface`ą Shape2D, kuri turėtų 2 abstrakčius metodus. Abu šie metodai neturi parametrų ir grąžina skaičių: "getPerimeter" ir "getArea"');
 
   // 5min
-  console.log('2.2. Sukurkite Rectangle klasę kuri paveldi Shape2D klasę ir implementuokite metodus. Konstruktoriaus ir savybes pasirinkite taip, kad galėtumėte implementuoti abstrakčių metodų logiką.');
+  console.log('2.2. Sukurkite Rectangle klasę kuri paveldi Shape2D interface`ą ir implementuokite metodus. Konstruktoriaus ir savybes pasirinkite taip, kad galėtumėte implementuoti abstrakčių metodų logiką.');
 
   // 5min
-  console.log('2.3. Sukurkite Circle klasę kuri paveldi Shape2D klasę ir implementuokite metodus. Konstruktoriaus ir savybes pasirinkite taip, kad galėtumėte implementuoti abstrakčių metodų logiką.');
+  console.log('2.3. Sukurkite Circle klasę kuri paveldi Shape2D interface`ą ir implementuokite metodus. Konstruktoriaus ir savybes pasirinkite taip, kad galėtumėte implementuoti abstrakčių metodų logiką.');
 
   // 5min
   console.groupCollapsed('2.4. Sukurkite "Shape2D" tipo masyvą, kuriame būtų 2 apskritimai ir 2 keturkampiai. Atspausdinkite visų figūrų plotus ir perimetrus naudodami "Shape2D" klasės abstrakčius metodus');
