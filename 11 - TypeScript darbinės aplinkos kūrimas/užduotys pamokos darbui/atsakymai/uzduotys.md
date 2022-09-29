@@ -110,7 +110,7 @@ npm i -D typescript ts-loader
     "removeComments": true,
     "skipLibCheck": true
   },
-  "include": [
+  "includes": [
     "src/main.ts"
   ]
 }
@@ -348,6 +348,9 @@ module.exports = {
         '@typescript-eslint',
     ],
     rules: {
+        'comma-dangle': 'off',
+        '@typescript-eslint/comma-dangle': [2],
+        '@typescript-eslint/indent': [0]
     },
 };
 ```
